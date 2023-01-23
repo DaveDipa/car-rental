@@ -1,0 +1,20 @@
+.card-text{
+    color: #000000;
+}
+.card-title{
+    color: #000000;
+
+}
+
+.btn{
+    color: rgb(0, 0, 0);
+    background-color: #EDEDE9;
+}
+
+.card{
+    background-color: #EDEDE9;
+}
+
+.card-img-top{
+    max-width:min-content;
+}
