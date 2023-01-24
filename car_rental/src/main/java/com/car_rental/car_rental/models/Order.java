@@ -7,7 +7,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToOne;
+import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 
 @Entity
@@ -22,21 +22,23 @@ public class Order {
 
     private LocalDate rentalDate;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL)
     private Car car;
 
-    public Order(Integer rentalCode, LocalDate rentalDate, Car car, Double rentalPrice) {
+    @ManyToOne(cascade = CascadeType.ALL)
+    private User user;
+
+    public Order(Integer rentalCode, LocalDate rentalDate, Car car, User user) {
         this.rentalCode = rentalCode;
         this.rentalDate = rentalDate;
         this.car = car;
-        this.rentalPrice = rentalPrice;
+        this.user = user;
     }
 
     public Order() {
     }
 
-    private Double rentalPrice;
-
+    
     public Long getId() {
         return id;
     }
@@ -69,18 +71,12 @@ public class Order {
         this.car = car;
     }
 
-    public Double getRentalPrice() {
-        return rentalPrice;
+    public User getUser() {
+        return user;
     }
 
-    public void setRentalPrice(Double rentalPrice) {
-        this.rentalPrice = rentalPrice;
-    }
-
-    @Override
-    public String toString() {
-        return "Order [id=" + id + ", rentalCode=" + rentalCode + ", rentalDate=" + rentalDate + ", car=" + car
-                + ", rentalPrice=" + rentalPrice + "]";
+    public void setUser(User user) {
+        this.user = user;
     }
 
 }

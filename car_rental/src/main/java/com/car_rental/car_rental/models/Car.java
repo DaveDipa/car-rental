@@ -1,9 +1,13 @@
 package com.car_rental.car_rental.models;
 
+import java.util.List;
+
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
 
 @Entity
 public class Car {
@@ -18,10 +22,14 @@ public class Car {
 
     private Integer engineSize;
 
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Order> order;
+
     public Car(String model, String brand, Integer engineSize) {
         this.model = model;
         this.brand = brand;
         this.engineSize = engineSize;
+  
     }
 
     public Car() {
@@ -59,9 +67,14 @@ public class Car {
         this.engineSize = engineSize;
     }
 
-    @Override
-    public String toString() {
-        return "Car [id=" + id + ", model=" + model + ", brand=" + brand + ", engineSize=" + engineSize + "]";
+    public List<Order> getOrder() {
+        return order;
     }
+
+    public void setOrder(List<Order> order) {
+        this.order = order;
+    }
+
+    
 
 }
