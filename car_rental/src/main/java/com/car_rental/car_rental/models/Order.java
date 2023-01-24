@@ -33,12 +33,14 @@ public class Order {
         this.rentalDate = rentalDate;
         this.car = car;
         this.user = user;
+        
     }
 
     public Order() {
     }
 
-    
+  
+
     public Long getId() {
         return id;
     }
@@ -78,5 +80,7 @@ public class Order {
     public void setUser(User user) {
         this.user = user;
     }
+
+
 
 }

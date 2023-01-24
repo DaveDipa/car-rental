@@ -10,11 +10,11 @@ export default function Car(props) {
 
         <div className="card-body">
           <div key={props.id}>
-            <h3 className="card-title">Modello  {props.model}</h3>
-            <br />
-            <h3 className="card-text">Marca  {props.brand}</h3>
-            <br />
-            <h4 className="card-text">Cilindrata  {props.engineSize} CV</h4>
+            <h3 className="card-text"> {props.brand}</h3>
+            <hr />
+            <h3 className="card-title"> {props.model}</h3>
+            <hr />
+            <h4 className="card-text"> {props.engineSize} CV</h4>
             <hr />
             <button className="btn btn-secondary"> AFFITTA</button>
           </div>

@@ -12,7 +12,7 @@ import com.car_rental.car_rental.repositories.OrderRepo;
 public class OrderService {
 
     @Autowired
-     OrderRepo orderRepo;
+    OrderRepo orderRepo;
 
     public List<Order> findAll() {
         return orderRepo.findAll();
@@ -25,5 +25,5 @@ public class OrderService {
     public Order save(Order order) {
         return orderRepo.save(order);
     }
-    
+
 }

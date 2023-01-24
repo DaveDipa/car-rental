@@ -1,18 +1,23 @@
 .card-text{
-    color: #000000;
+    color: #fbf8f8;
 }
 .card-title{
-    color: #000000;
+    color: #9AD1D4;
 
+}
+hr{
+    color: #9AD1D4;
 }
 
 .btn{
     color: rgb(0, 0, 0);
-    background-color: #EDEDE9;
+    background-color: #9AD1D4;
 }
 
 .card{
-    background-color: #EDEDE9;
+    background-color: #003249;
+    border-width: 4px;
+    border-color: #9AD1D4;
 }
 
 .card-img-top{
