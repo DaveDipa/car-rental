@@ -30,10 +30,11 @@ function App() {
       <div className="title">
         <div className="title-text">
           <h1>Benvenuti da Car Rental Roma</h1>
-          <br />
+
           <h1>Da noi portai scegliere tra una vasta gamma di automobili</h1>
         </div>
       </div>
+
       <div>
         <CarsList cars={cars} />
       </div>

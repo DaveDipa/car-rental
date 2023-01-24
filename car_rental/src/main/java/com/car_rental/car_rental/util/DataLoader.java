@@ -26,12 +26,14 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Car c1 = new Car("X5", "BMW", 2993);
-        Car c2 = new Car("GLE", "Mercedes", 3982);
-        Car c3 = new Car("A3", "Audi", 2480);
-        Car c4 = new Car("DS7", "DS", 1598);
-        Car c5 = new Car("Tonale", "Alfa Romeo", 1469);
-        Car c6 = new Car("Urus", "Lamborghini", 3996);
+        Car c1 = new Car("X5", "BMW", 2993, "https://www.bmw.it");
+        Car c2 = new Car("GLE", "Mercedes", 3982, "https://www.mercedes-benz.it");
+        Car c3 = new Car("A3", "Audi", 2480, "https://www.audi.it");
+        Car c4 = new Car("DS7", "DS", 1598, "https://www.dsautomobiles.it");
+        Car c5 = new Car("Tonale", "Alfa Romeo", 1469, "https://www.alfaromeo.it");
+        Car c6 = new Car("Urus", "Lamborghini", 3996, "https://www.lamborghini.com");
+        Car c7 = new Car("Purosangue", "Ferrari", 6496, "https://www.ferrari.com");
+        Car c8 = new Car("Sport", "Range Rover", 2996, "https://www.landrover.it");
        
         List<Car> cars = new ArrayList<>();
         cars.add(c1);
@@ -40,10 +42,14 @@ public class DataLoader implements CommandLineRunner {
         cars.add(c4);
         cars.add(c5);
         cars.add(c6);
+        cars.add(c7);
+        cars.add(c8);
 
        
         carService.save(c5);
         carService.save(c6);
+        carService.save(c7);
+        carService.save(c8);
 
         User u1 = new User("AAA123", "Carlo", "Rossi", "rossi.c@email.com");
         User u2 = new User("BBB123", "Giulio", "Cesare", "cesare@email.com");
