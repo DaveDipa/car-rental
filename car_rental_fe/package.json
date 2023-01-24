@@ -9,10 +9,12 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@kitce/react-use-fadeout-scroll": "^2.1.1",
     "bootstrap": "^5.2.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-fade": "^1.1.1"
+    "react-fade": "^1.1.1",
+    "react-slide-fade-in": "^1.0.9"
   },
   "devDependencies": {
     "@types/react": "^18.0.26",

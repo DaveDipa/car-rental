@@ -4,6 +4,7 @@ import "./components/car/Car.css";
 import "./components/navbar/Navbar.css";
 import CarsList from "./components/car/CarsList";
 import Navbar from "./components/navbar/Navbar";
+import { FadeIn } from "react-slide-fade-in";
 
 function App() {
   const [cars, setCars] = useState([]);
@@ -29,15 +30,41 @@ function App() {
       <Navbar />
       <div className="title">
         <div className="title-text">
-          <h1>Benvenuti da Car Rental Roma</h1>
-
-          <h1>Da noi portai scegliere tra una vasta gamma di automobili</h1>
+          <FadeIn
+            from="left"
+            positionOffset={100}
+            triggerOffset={200}
+            delayInMilliseconds={500}
+          >
+            <h1>Benvenuti </h1>
+          </FadeIn>
+          <h1 className="car-rental-roma">CAR RENTAL ROMA</h1>
+          <FadeIn
+            from="right"
+            positionOffset={100}
+            triggerOffset={100}
+            delayInMilliseconds={2000}
+          >
+            <h1>
+              Vi offre la possibilità di scegliere tra una vasta gamma di
+              automobili
+            </h1>
+          </FadeIn>
         </div>
       </div>
-
       <div>
-        <CarsList cars={cars} />
+        <h1 className="parco-auto-text">Il nostro parco auto</h1>
       </div>
+      <FadeIn
+        from="bottom"
+        positionOffset={200}
+        triggerOffset={90}
+        delayInMilliseconds={800}
+      >
+        <div>
+          <CarsList cars={cars} />
+        </div>
+      </FadeIn>
     </div>
   );
 }

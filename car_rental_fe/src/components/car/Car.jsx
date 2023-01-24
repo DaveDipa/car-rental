@@ -1,6 +1,9 @@
+
 export default function Car(props) {
   return (
+
     <div className="col-3 ">
+       
       <div className="card ">
         <div className="card-body">
           <div key={props.id}>
