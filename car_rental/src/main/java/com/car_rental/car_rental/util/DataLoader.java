@@ -34,7 +34,8 @@ public class DataLoader implements CommandLineRunner {
         Car c6 = new Car("Urus", "Lamborghini", 3996, "https://www.lamborghini.com");
         Car c7 = new Car("Purosangue", "Ferrari", 6496, "https://www.ferrari.com");
         Car c8 = new Car("Sport", "Range Rover", 2996, "https://www.landrover.it");
-       
+        Car c9 = new Car("Panda", "Fiat", 1000, "https://www.fiat.it");
+
         List<Car> cars = new ArrayList<>();
         cars.add(c1);
         cars.add(c2);
@@ -44,12 +45,13 @@ public class DataLoader implements CommandLineRunner {
         cars.add(c6);
         cars.add(c7);
         cars.add(c8);
+        cars.add(c9);
 
-       
         carService.save(c5);
         carService.save(c6);
         carService.save(c7);
         carService.save(c8);
+        carService.save(c9);
 
         User u1 = new User("AAA123", "Carlo", "Rossi", "rossi.c@email.com");
         User u2 = new User("BBB123", "Giulio", "Cesare", "cesare@email.com");
@@ -60,7 +62,7 @@ public class DataLoader implements CommandLineRunner {
         Order o2 = new Order(002, LocalDate.of(2023, 01, 30), c2, u2);
         Order o3 = new Order(003, LocalDate.of(2023, 02, 13), c3, u3);
         Order o4 = new Order(004, LocalDate.of(2023, 03, 28), c4, u4);
-        Order o5 = new Order (005, LocalDate.now(), null, null);
+        Order o5 = new Order(005, LocalDate.now(), null, null);
 
         List<Order> orders = new ArrayList<>();
         orders.add(o1);

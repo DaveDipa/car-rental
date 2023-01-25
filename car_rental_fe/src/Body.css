@@ -1,26 +1,57 @@
 .app {
-	background-size:cover;
+  object-position: 50% 50%;
+  object-fit: cover;
   background-image: url(https://images.unsplash.com/photo-1558879912-38d7a8936871?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1980&q=80);
 }
 
-.title{
+.title {
   width: auto;
-  height: 1000px ;
-  background-size:cover;
+  height: 1000px;
+  background-size: cover;
   background-image: url(https://images.unsplash.com/photo-1468818438311-4bab781ab9b8?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80);
-    
 }
 
-.title-text{
-  padding-top:20%;
-  text-align:center;
-  color:#bedfee ;
-}
-
-.parco-auto-text{
+.title-text {
+  padding-top: 20%;
+  text-align: center;
   color: #bedfee;
 }
 
-.car-rental-roma{
-  color:  #ffffff;
+.parco-auto-text {
+  color: #bedfee;
+}
+
+.car-rental-roma {
+  color: #ffffff;
+}
+
+.hero-cont {
+  
+  background-color: #003249;
+}
+.hero-title {
+  
+  text-align: center;
+  color: #bedfee;
+}
+
+.p-chi-siamo {
+  line-height: 250%;
+  word-spacing: 5px;
+  margin-top: 10%;
+  text-align: right;
+  vertical-align: middle;
+  color: #bedfee;
+}
+
+.hero-img-cont {
+  margin-inline: 5%;
+  margin-block: 5%;
+  width: 100%;
+  height: auto;
+}
+
+.hero-img {
+  width: auto;
+  height: 600px;
 }

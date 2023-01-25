@@ -24,6 +24,8 @@ public class Car {
 
     private String link;
 
+
+
     @OneToMany(cascade = CascadeType.ALL)
     private List<Order> order;
 
@@ -84,7 +86,5 @@ public class Car {
     public void setLink(String link) {
         this.link = link;
     }
-
-    
 
 }

@@ -1,9 +1,6 @@
-
 export default function Car(props) {
   return (
-
-    <div className="col-3 ">
-       
+    <div className="col-6 ">
       <div className="card ">
         <div className="card-body">
           <div key={props.id}>
@@ -11,13 +8,13 @@ export default function Car(props) {
             <hr />
             <h3 className="card-title"> {props.model}</h3>
             <hr />
-            <h4 className="card-text"> {props.engineSize} CV</h4>
+            <h4 className="card-text"> {props.engineSize} CC</h4>
             <hr />
-            <button className="btn btn-secondary"> AFFITTA</button>
-            <hr />
-            <a href={props.link} className="card-text">
-              Visita il sito
-            </a>
+            <button className="btn btn-secondary">
+              <a href={props.link} className="card-text">
+                Visita il sito
+              </a>
+            </button>
           </div>
         </div>
       </div>
