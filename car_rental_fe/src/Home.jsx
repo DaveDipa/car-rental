@@ -2,11 +2,12 @@ import { useEffect, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./components/car/Car.css";
 import "./components/navbar/Navbar.css";
+import "./pages/contatti/contatti.css"
 import CarsList from "./components/car/CarsList";
 import Navbar from "./components/navbar/Navbar";
 import { FadeIn } from "react-slide-fade-in";
 
-function App() {
+function Home() {
   const [cars, setCars] = useState([]);
 
   const defaultCarUrl = "http://localhost:8080/api/car";
@@ -27,10 +28,13 @@ function App() {
 
   return (
     <>
-      <div className="app text-center">
+      <div className="home text-center">
         <Navbar />
         <div className="title">
           <div className="title-text">
+
+            <h1 className="car-rental-roma">CAR RENTAL ROMA</h1>
+
             <FadeIn
               from="left"
               positionOffset={100}
@@ -39,7 +43,7 @@ function App() {
             >
               <h1>Benvenuti </h1>
             </FadeIn>
-            <h1 className="car-rental-roma">CAR RENTAL ROMA</h1>
+
             <FadeIn
               from="right"
               positionOffset={100}
@@ -51,6 +55,7 @@ function App() {
                 automobili
               </h1>
             </FadeIn>
+
           </div>
         </div>
         <div>
@@ -96,7 +101,6 @@ function App() {
           </FadeIn>
         </div>
 
-        
         <div className="col hero-img-cont">
           <FadeIn
             from="bottom"
@@ -116,4 +120,4 @@ function App() {
   );
 }
 
-export default App;
+export default Home;

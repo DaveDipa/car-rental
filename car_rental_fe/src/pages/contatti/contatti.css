@@ -1,0 +1,26 @@
+.contatti {
+  background-color: #bedfee;
+  margin: 0;
+  place-items: center;
+  min-width: 100vw;
+  min-height: 100vh;
+}
+
+.sedi {
+  text-align: center;
+  color: #ffffff;
+}
+.sedi-title {
+  padding-block: 10%;
+}
+.items-sedi {
+  display: flex;
+  justify-content: space-around;
+  color: #003249;
+}
+.items-contatti {
+    padding-block: 10%;
+  display: flex;
+  justify-content: space-around;
+  color: #003249;
+}
