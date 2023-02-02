@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component;
 
 import com.car_rental.car_rental.models.Car;
 import com.car_rental.car_rental.models.Order;
-import com.car_rental.car_rental.models.User;
 import com.car_rental.car_rental.services.CarService;
 import com.car_rental.car_rental.services.OrderService;
 
@@ -53,15 +52,12 @@ public class DataLoader implements CommandLineRunner {
         carService.save(c8);
         carService.save(c9);
 
-        User u1 = new User("AAA123", "Carlo", "Rossi", "rossi.c@email.com");
-        User u2 = new User("BBB123", "Giulio", "Cesare", "cesare@email.com");
-        User u3 = new User("CCC123", "Francesco", "Verdi", "francescoverdi@email.com");
-        User u4 = new User("DDD123", "Piero", "Pieri", "pieri_p@email.com");
+    
 
-        Order o1 = new Order(001, LocalDate.of(2022, 12, 26), LocalDate.of(2022,12,30),c1, u1);
-        Order o2 = new Order(002, LocalDate.of(2023, 01, 30), LocalDate.of(2023, 01, 31),c2, u2);
-        Order o3 = new Order(003, LocalDate.of(2023, 02, 13), LocalDate.of(2023, 02, 25),c3, u3);
-        Order o4 = new Order(004, LocalDate.of(2023, 03, 28), LocalDate.of(2023, 04, 26),c4, u4);
+        Order o1 = new Order(001, LocalDate.of(2022, 12, 26), LocalDate.of(2022,12,30),c1);
+        Order o2 = new Order(002, LocalDate.of(2023, 01, 30), LocalDate.of(2023, 01, 31),c2);
+        Order o3 = new Order(003, LocalDate.of(2023, 02, 13), LocalDate.of(2023, 02, 25),c3);
+        Order o4 = new Order(004, LocalDate.of(2023, 03, 28), LocalDate.of(2023, 04, 26),c4);
     
 
         List<Order> orders = new ArrayList<>();

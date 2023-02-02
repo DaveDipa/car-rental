@@ -29,15 +29,14 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL)
     private Car car;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    private User user;
 
-    public Order(Integer rentalCode, LocalDate rentalDateStart,LocalDate rentalDateEnd, Car car, User user) {
+
+    public Order(Integer rentalCode, LocalDate rentalDateStart,LocalDate rentalDateEnd, Car car) {
         this.rentalCode = rentalCode;
         this.rentalDateStart = rentalDateStart;
         this.rentalDateEnd = rentalDateEnd;
         this.car = car;
-        this.user = user;
+
         
     }
 
@@ -80,13 +79,6 @@ public class Order {
         this.car = car;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
 
     public LocalDate getRentalDateEnd() {
         return rentalDateEnd;

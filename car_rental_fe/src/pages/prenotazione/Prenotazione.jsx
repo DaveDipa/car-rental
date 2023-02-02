@@ -4,6 +4,7 @@ import "./prenotazione.css";
 
 export default function Prenotazione() {
   const [cars, setCars] = useState([]);
+  const [choosedCar, setChoosedCar] = useState(-1);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
 
@@ -25,8 +26,9 @@ export default function Prenotazione() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("L'automobile scelta è " + cars);
+    console.log("L'automobile scelta è " + choosedCar);
     console.log("il periodo scelto è dal: " + startDate + " al " + endDate);
+
   };
 
   return (
@@ -37,16 +39,17 @@ export default function Prenotazione() {
         {/**FORM */}
         <form onSubmit={handleSubmit} className="form">
           {/**drop down menu per scelta automobili */}
-          <select className="form-item">
+          <select
+            className="form-item"
+            onChange={(e) => {
+                console.log(e);
+              setChoosedCar(e.target.value);
+            }}
+          >
+            <option value={-1}>scegli auto</option>
             {cars &&
               cars.map((car) => (
-                <option
-                  key={car.id}
-                  value={car}
-                  onChange={(event) => {
-                    setCars(event.target.value);
-                  }}
-                >
+                <option key={car.id} value={car.id}>
                   {car.brand + " - " + car.model}
                 </option>
               ))}
