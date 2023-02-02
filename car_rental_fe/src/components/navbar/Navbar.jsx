@@ -6,8 +6,8 @@ export default function Navbar() {
       <a className="navbar-brand mx-3">CAR RENTAL ROMA</a>
       <div>
       <Link className="navbar-brand mx-3" to={"/"}>Home</Link>
-      <Link to={"/contatti"} className="navbar-brand mx-3">contatti</Link>
-      <a className="navbar-brand mx-3">chi siamo</a>
+      <a to={"/contatti"} className="navbar-brand mx-3">contatti</a>
+      <a href="#chi-siamo" className="navbar-brand mx-3">chi siamo</a>
       </div>
 
 

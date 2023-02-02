@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./components/car/Car.css";
 import "./components/navbar/Navbar.css";
-import "./pages/contatti/contatti.css"
+import "./pages/contatti/contatti.css";
 import CarsList from "./components/car/CarsList";
 import Navbar from "./components/navbar/Navbar";
 import { FadeIn } from "react-slide-fade-in";
@@ -22,7 +23,6 @@ function Home() {
 
       .then((data) => {
         setCars(data);
-        console.log(data);
       });
   };
 
@@ -32,30 +32,19 @@ function Home() {
         <Navbar />
         <div className="title">
           <div className="title-text">
-
             <h1 className="car-rental-roma">CAR RENTAL ROMA</h1>
-
-            <FadeIn
-              from="left"
-              positionOffset={100}
-              triggerOffset={200}
-              delayInMilliseconds={500}
-            >
-              <h1>Benvenuti </h1>
-            </FadeIn>
 
             <FadeIn
               from="right"
               positionOffset={100}
               triggerOffset={100}
-              delayInMilliseconds={2000}
+              delayInMilliseconds={500}
             >
               <h1>
                 Vi offriamo la possibilità di scegliere tra una vasta gamma di
                 automobili
               </h1>
             </FadeIn>
-
           </div>
         </div>
         <div>
@@ -72,32 +61,48 @@ function Home() {
           </div>
         </FadeIn>
       </div>
-
+      <div className="btn-p-container">
+        <Link className="link-to-prenotazione" to={"/prenotazione"}>
+          PRENOTA LA TUA AUTOMOBILE
+        </Link>
+      </div>
       {/**HERO */}
       <div className="row hero-cont">
         <h1 className="hero-title">Chi siamo</h1>
 
-        <div className="col p-chi-siamo">
+        <div id="chi-siamo" className="col p-chi-siamo">
           <FadeIn
             from="bottom"
             positionOffset={200}
             triggerOffset={90}
             delayInMilliseconds={100}
           >
-            <p className="col ">
-              Contrary to popular belief, Lorem Ipsum is not simply random text.
-              It has roots in a piece of classical Latin literature from 45 BC,
-              making it over 2000 years old. Richard McClintock, a Latin
-              professor at Hampden-Sydney College in Virginia, looked up one of
-              the more obscure Latin words, consectetur, from a Lorem Ipsum
-              passage, and going through the cites of the word in classical
-              literature, discovered the undoubtable source. Lorem Ipsum comes
-              from sections 1.10.32 and 1.10.33 of "de Finibus Bonorum et
-              Malorum" (The Extremes of Good and Evil) by Cicero, written in 45
-              BC. This book is a treatise on the theory of ethics, very popular
-              during the Renaissance. The first line of Lorem Ipsum, "Lorem
-              ipsum dolor sit amet..", comes from a line in section 1.10.32.
-            </p>
+            <div className=" descrizione col ">
+              <h5>
+                Ciao a tutti! Siamo Roma Car Rental, un'azienda che offre
+                servizi di noleggio auto a Roma. Siamo fieri di offrire una
+                vasta selezione di veicoli di alta qualità a prezzi convenienti
+                per soddisfare le esigenze di ogni nostro cliente. Che tu stia
+                pianificando un viaggio di lavoro, una vacanza o un evento
+                speciale, abbiamo la soluzione perfetta per te.
+              </h5>
+              <hr />
+              <h5>
+                La nostra flotta comprende auto di lusso, SUV, berline e altro
+                ancora. Inoltre, offriamo anche pacchetti personalizzati per
+                soddisfare le tue esigenze specifiche. Il nostro team di esperti
+                è sempre disponibile per consigliarti e aiutarti a scegliere la
+                soluzione ideale per te. Inoltre, la nostra attenzione al
+                servizio clienti non ha eguali. Siamo sempre pronti a rispondere
+                alle tue domande e a fornirti assistenza in qualsiasi momento
+                durante il noleggio.
+              </h5>
+              <hr />
+              <h3>
+                Vieni a scoprire perché Roma Car Rental è la scelta ideale per
+                il noleggio auto a Roma. Ti aspettiamo!
+              </h3>
+            </div>
           </FadeIn>
         </div>
 

@@ -1,0 +1,21 @@
+.form-container{
+    margin: 16px;
+    
+    width: 100%;
+    min-width: min-content;
+    display: flex;
+    justify-content: center;
+}
+.form-item{
+ margin: 36px;
+ color: #bedfee;
+ background-color: #003249;
+ border-style: none;
+}
+.btn-form-item{
+    border-radius: 5px;
+    background-color: #003249;
+    border-color: #bedfee;
+    color: #bedfee;
+
+}

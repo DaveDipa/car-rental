@@ -58,25 +58,24 @@ public class DataLoader implements CommandLineRunner {
         User u3 = new User("CCC123", "Francesco", "Verdi", "francescoverdi@email.com");
         User u4 = new User("DDD123", "Piero", "Pieri", "pieri_p@email.com");
 
-        Order o1 = new Order(001, LocalDate.of(2022, 12, 26), c1, u1);
-        Order o2 = new Order(002, LocalDate.of(2023, 01, 30), c2, u2);
-        Order o3 = new Order(003, LocalDate.of(2023, 02, 13), c3, u3);
-        Order o4 = new Order(004, LocalDate.of(2023, 03, 28), c4, u4);
-        Order o5 = new Order(005, LocalDate.now(), null, null);
+        Order o1 = new Order(001, LocalDate.of(2022, 12, 26), LocalDate.of(2022,12,30),c1, u1);
+        Order o2 = new Order(002, LocalDate.of(2023, 01, 30), LocalDate.of(2023, 01, 31),c2, u2);
+        Order o3 = new Order(003, LocalDate.of(2023, 02, 13), LocalDate.of(2023, 02, 25),c3, u3);
+        Order o4 = new Order(004, LocalDate.of(2023, 03, 28), LocalDate.of(2023, 04, 26),c4, u4);
+    
 
         List<Order> orders = new ArrayList<>();
         orders.add(o1);
         orders.add(o2);
         orders.add(o3);
         orders.add(o4);
-        orders.add(o5);
 
         orderService.save(o1);
         orderService.save(o2);
         orderService.save(o3);
         orderService.save(o4);
 
-        System.out.println("Application Started");
+        System.out.println("Application Is Running");
 
     }
 
