@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import "./prenotazione.css";
+import { IconCar } from "@tabler/icons-react";
 
 export default function Prenotazione() {
   const [cars, setCars] = useState([]);
@@ -26,23 +27,50 @@ export default function Prenotazione() {
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    console.log("L'automobile scelta è " + choosedCar);
-    console.log("il periodo scelto è dal: " + startDate + " al " + endDate);
+    const newOrder = {
+      car: choosedCar,
+      rentalDateStart: startDate,
+      rentalDateEnd: endDate,
+    };
+    console.log(newOrder);
+    console.log(JSON.stringify(newOrder));
 
+    {
+      /*** FETCH PER POST ***/
+    }
+
+    fetch("http://localhost:8080/api/order/save", {
+      method: "POST",
+      body: JSON.stringify(newOrder),
+      headers: {
+        "Content-type": "application/json; charset=UTF-8",
+      },
+    })
+      .then((response) => response.json())
+      .then((data) => {
+        data && <h1>{data}</h1>;
+      })
+      .catch((err) => {
+        console.log(err.message);
+      });
   };
 
   return (
     <div>
       <Navbar />
+      <div>
+        <h1 className="result-ordine">ORDINA LA TUA VETTURA </h1>
+      </div>
 
       <div className="form-container">
         {/**FORM */}
         <form onSubmit={handleSubmit} className="form">
           {/**drop down menu per scelta automobili */}
+          <IconCar className={"icon"} />
           <select
             className="form-item"
             onChange={(e) => {
-                console.log(e);
+              console.log(e);
               setChoosedCar(e.target.value);
             }}
           >
@@ -55,8 +83,7 @@ export default function Prenotazione() {
               ))}
           </select>
 
-          {/**gestire min e max nelle date */}
-          {/**form per la scelta della data di inizio e fine del noleggio */}
+          <label htmlFor="scegliDataInizio">Data ritiro veicolo</label>
           <input
             value={startDate}
             onChange={(event) => {
@@ -66,9 +93,8 @@ export default function Prenotazione() {
             type="date"
             id="scegliDataInizio"
             name="rent-start"
-            placeholder="scegli la data iniziale"
           />
-
+          <label htmlFor="scegliDataFine">Data consegna veicolo</label>
           <input
             value={endDate}
             onChange={(event) => {
@@ -76,14 +102,13 @@ export default function Prenotazione() {
             }}
             className="form-item"
             type="date"
-            id="scegliDataInizio"
+            id="scegliDataFine"
             name="rent-end"
-            placeholder="scegli la data finale"
           />
 
           {/**fare check della disponibilità dell'automobile, nel periodo di tempo selezionato dall'utente */}
           <button className="btn-form-item" type="submit">
-            Prenota
+            Procedi con l'ordine
           </button>
         </form>
       </div>

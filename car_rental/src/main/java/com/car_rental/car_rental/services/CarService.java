@@ -6,7 +6,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.car_rental.car_rental.models.Car;
-import com.car_rental.car_rental.models.Order;
 import com.car_rental.car_rental.repositories.CarRepo;
 
 @Service
@@ -27,11 +26,6 @@ public class CarService {
         return carRepo.save(car);
     }
 
-    public List<Car> findAvaibleCars(Order orders){
-        if(orders.getId() == null){
-            return carRepo.findAll();
-        }
-        return null;
-    }
+    
    
 }

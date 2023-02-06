@@ -25,8 +25,14 @@ public class OrderService {
     public Order save(Order order) {
         return orderRepo.save(order);
     }
-  
-    public Order saveFeOrder(Order order){
+
+    public Order saveFeOrder(Order order) {
         return orderRepo.save(order);
     }
+
+    public Order findCarById(String carId) {
+
+        return orderRepo.findCarById(carId);
+    }
+
 }
