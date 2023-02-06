@@ -1,5 +1,6 @@
 .form-container{
-    margin: 16px;
+
+    margin: 0px;
     width: 100%;
     min-width: min-content;
     display: flex;
@@ -33,4 +34,8 @@
 }
 label{
     color: #bedfee;
+}
+.prenotazione-img{
+    width: 100%;
+    height: auto;
 }

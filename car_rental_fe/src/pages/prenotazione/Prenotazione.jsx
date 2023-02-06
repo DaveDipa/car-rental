@@ -2,12 +2,14 @@ import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar/Navbar";
 import "./prenotazione.css";
 import { IconCar } from "@tabler/icons-react";
+import Footer from "../../components/footer/Footer";
 
 export default function Prenotazione() {
   const [cars, setCars] = useState([]);
   const [choosedCar, setChoosedCar] = useState(-1);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
+  const [choosedOrder, setChoosedOrder] = useState([])//prova a far vedere una sorta di recap con modello macchina, start e end se ordine è ok
 
   const defaultCarUrl = "http://localhost:8080/api/car";
 
@@ -48,7 +50,7 @@ export default function Prenotazione() {
     })
       .then((response) => response.json())
       .then((data) => {
-        data && <h1>{data}</h1>;
+        setChoosedOrder(data);
       })
       .catch((err) => {
         console.log(err.message);
@@ -106,12 +108,19 @@ export default function Prenotazione() {
             name="rent-end"
           />
 
-          {/**fare check della disponibilità dell'automobile, nel periodo di tempo selezionato dall'utente */}
           <button className="btn-form-item" type="submit">
             Procedi con l'ordine
           </button>
         </form>
       </div>
+      <div>
+        <img
+          className="prenotazione-img"
+          src="https://images.unsplash.com/photo-1421218108559-eb1ff78357f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"
+          alt=""
+        />
+      </div>
+      <Footer />
     </div>
   );
 }

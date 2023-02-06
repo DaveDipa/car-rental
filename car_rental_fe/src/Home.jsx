@@ -7,6 +7,7 @@ import "./pages/contatti/contatti.css";
 import CarsList from "./components/car/CarsList";
 import Navbar from "./components/navbar/Navbar";
 import { FadeIn } from "react-slide-fade-in";
+import Footer from "./components/footer/Footer";
 
 function Home() {
   const [cars, setCars] = useState([]);
@@ -61,11 +62,14 @@ function Home() {
           </div>
         </FadeIn>
       </div>
+      <hr />
       <div className="btn-p-container">
         <Link className="link-to-prenotazione" to={"/prenotazione"}>
           PRENOTA LA TUA AUTOMOBILE
         </Link>
+        
       </div>
+      <hr />
       {/**HERO */}
       <div className="row hero-cont">
         <h1 className="hero-title">Chi siamo</h1>
@@ -121,6 +125,8 @@ function Home() {
           </FadeIn>
         </div>
       </div>
+      <hr />
+      <Footer/>
     </>
   );
 }
