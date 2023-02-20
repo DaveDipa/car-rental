@@ -1,6 +1,7 @@
 package com.car_rental.car_rental.controllers;
 
 import java.time.LocalDate;
+import java.time.Period;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -41,13 +42,13 @@ public class OrderController {
 
         LocalDate today = LocalDate.now();
 
-        // check data ritiro non sia minore della data odierna
+        // CHECK DATA MAGGIORE DI QUELLA ODIERNA
         if (orderRequest.getRentalDateStart().isBefore(today)) {
             System.out.println("non è possibile prenotare una vettura con data minore a quella ordierna");
             return null;
         }
 
-        //check disponibilità auto
+        //CHECK DISPONIBILITA AUTO
         List<Order> orderFound = orderService.checkCarOrder(orderedCar.getId(), orderRequest.getRentalDateStart(),
                 orderRequest.getRentalDateEnd());
 
@@ -62,8 +63,18 @@ public class OrderController {
 
         }
         else{
-            System.out.println("auto già prenotata");
+            System.out.println("auto già prenotata in questo periodo");
         }
+
+        //TROVARE GIORNI DI AFFITTO PER CALCOLARE IL PREZZO TOTALE
+        LocalDate from = orderRequest.getRentalDateStart();
+        LocalDate to = orderRequest.getRentalDateEnd();
+
+        Period period = Period.between(from, to);
+        
+
+        System.out.println(period.getDays() + " giorni di affitto");
+        System.out.println("prezzo totale affitto: " + 5 * period.getDays() + " EURO");//PROVA CALCOLO PREZZO
         
 
         return newOrder;
