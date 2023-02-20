@@ -9,7 +9,7 @@ export default function Prenotazione() {
   const [choosedCar, setChoosedCar] = useState(-1);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [choosedOrder, setChoosedOrder] = useState([])//prova a far vedere una sorta di recap con modello macchina, start e end se ordine è ok
+  const [choosedOrder, setChoosedOrder] = useState([]); //prova a far vedere una sorta di recap con modello macchina, start e end se ordine è ok
 
   const defaultCarUrl = "http://localhost:8080/api/car";
 
@@ -41,7 +41,7 @@ export default function Prenotazione() {
       /*** FETCH PER POST ***/
     }
 
-    fetch("http://localhost:8080/api/order/save", {
+     fetch("http://localhost:8080/api/order/save", {
       method: "POST",
       body: JSON.stringify(newOrder),
       headers: {
@@ -51,9 +51,10 @@ export default function Prenotazione() {
       .then((response) => response.json())
       .then((data) => {
         setChoosedOrder(data);
+       console.log(data);
       })
       .catch((err) => {
-        console.log(err.message);
+        console.log(err + " Errore");
       });
   };
 
@@ -85,7 +86,7 @@ export default function Prenotazione() {
               ))}
           </select>
 
-          <label htmlFor="scegliDataInizio">Data ritiro veicolo</label>
+          <label htmlFor="scegliDataInizio">Data ritiro veicolo: </label>
           <input
             value={startDate}
             onChange={(event) => {
@@ -96,7 +97,7 @@ export default function Prenotazione() {
             id="scegliDataInizio"
             name="rent-start"
           />
-          <label htmlFor="scegliDataFine">Data consegna veicolo</label>
+          <label htmlFor="scegliDataFine">Data consegna veicolo:</label>
           <input
             value={endDate}
             onChange={(event) => {

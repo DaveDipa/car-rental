@@ -1,7 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import "./Body.css";
+import "./home.css";
 import Home from "./Home";
 import Contatti from "./pages/contatti/Contatti";
 import Prenotazione from "./pages/prenotazione/Prenotazione";

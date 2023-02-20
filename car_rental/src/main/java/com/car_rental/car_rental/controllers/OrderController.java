@@ -33,13 +33,40 @@ public class OrderController {
         return orderService.findAll();
     }
 
-    //TODO implementare controlli per validare ordine o generare errore
     @PostMapping("/save")
     public Order save(@RequestBody OrderRequestBody orderRequest) {
 
-        Car orderCar = carService.findById(orderRequest.getCar());
-        System.out.println(orderCar.toString());
-        return orderService.save(new Order(orderRequest.getRentalDateStart(), orderRequest.getRentalDateEnd(), orderCar));
+        Car orderedCar = carService.findById(orderRequest.getCar());
+        System.out.println(orderedCar.toString());
+
+        LocalDate today = LocalDate.now();
+
+        // check data ritiro non sia minore della data odierna
+        if (orderRequest.getRentalDateStart().isBefore(today)) {
+            System.out.println("non è possibile prenotare una vettura con data minore a quella ordierna");
+            return null;
+        }
+
+        //check disponibilità auto
+        List<Order> orderFound = orderService.checkCarOrder(orderedCar.getId(), orderRequest.getRentalDateStart(),
+                orderRequest.getRentalDateEnd());
+
+        Order newOrder = null;
+
+        if (orderFound.isEmpty()) {
+
+            newOrder = orderService.save(new Order(orderRequest.getRentalDateStart(), orderRequest.getRentalDateEnd(),
+                    orderedCar));
+
+            System.out.println("nuovo ordine salvato: " + orderRequest.getCar());
+
+        }
+        else{
+            System.out.println("auto già prenotata");
+        }
+        
+
+        return newOrder;
     }
 
 }

@@ -1,11 +1,13 @@
 package com.car_rental.car_rental.services;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.car_rental.car_rental.models.Order;
+
 import com.car_rental.car_rental.repositories.OrderRepo;
 
 @Service
@@ -26,13 +28,9 @@ public class OrderService {
         return orderRepo.save(order);
     }
 
-    public Order saveFeOrder(Order order) {
-        return orderRepo.save(order);
+    public List<Order> checkCarOrder(Long carId, LocalDate dateStart, LocalDate dateEnd){
+        return orderRepo.checkCarOrder(carId, dateStart, dateEnd, dateStart, dateEnd);
     }
-
-    public Order findCarById(String carId) {
-
-        return orderRepo.findCarById(carId);
-    }
+    
 
 }

@@ -29,6 +29,7 @@ function Home() {
 
   return (
     <>
+      {/* HEADER */}
       <div className="home text-center">
         <Navbar />
         <div className="title">
@@ -57,6 +58,7 @@ function Home() {
           triggerOffset={90}
           delayInMilliseconds={100}
         >
+          {/* CARDS */}
           <div>
             <CarsList cars={cars} />
           </div>
@@ -67,7 +69,6 @@ function Home() {
         <Link className="link-to-prenotazione" to={"/prenotazione"}>
           PRENOTA LA TUA AUTOMOBILE
         </Link>
-        
       </div>
       <hr />
       {/**HERO */}
@@ -126,7 +127,13 @@ function Home() {
         </div>
       </div>
       <hr />
-      <Footer/>
+      <div className="btn-p-container">
+        <Link className="link-to-prenotazione" to={"/prenotazione"}>
+          PRENOTA LA TUA AUTOMOBILE
+        </Link>
+      </div>
+      <hr />
+      <Footer />
     </>
   );
 }

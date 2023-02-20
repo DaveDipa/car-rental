@@ -37,8 +37,7 @@ public class Order {
         this.rentalDateStart = rentalDateStart;
         this.rentalDateEnd = rentalDateEnd;
         this.car = car;
-
-        
+   
     }
 
    
