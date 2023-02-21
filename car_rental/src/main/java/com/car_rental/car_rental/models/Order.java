@@ -22,7 +22,6 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-
     private LocalDate rentalDateStart;
 
     private LocalDate rentalDateEnd;
@@ -30,23 +29,13 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL)
     private Car car;
 
-    // private Double totalPrice;
+    private Double totalPrice;
 
+    public Order(LocalDate rentalDateStart, LocalDate rentalDateEnd, Car car) {
 
-
-
-    public Order( LocalDate rentalDateStart,LocalDate rentalDateEnd, Car car) {
-     
         this.rentalDateStart = rentalDateStart;
         this.rentalDateEnd = rentalDateEnd;
         this.car = car;
-   
     }
-
-   
-
-   
-
-
 
 }

@@ -5,6 +5,7 @@ import "./home.css";
 import Home from "./Home";
 import Contatti from "./pages/contatti/Contatti";
 import Prenotazione from "./pages/prenotazione/Prenotazione";
+import Admin from "./pages/admin/Admin";
 
 const router = createBrowserRouter([
   {
@@ -18,6 +19,10 @@ const router = createBrowserRouter([
   {
     path: "/prenotazione",
     element: <Prenotazione />,
+  },
+  {
+    path: "/admin",
+    element: <Admin />,
   },
 ]);
 

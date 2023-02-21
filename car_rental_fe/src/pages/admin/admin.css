@@ -1,0 +1,23 @@
+.orders-title{
+    text-align: center;
+    color: #9AD1D4;
+}
+.orderID{
+    text-align: center;
+    margin-block: 16px;
+    background-color:#9AD1D4;
+    padding: 8px;
+}
+.orderInfo{
+    text-align: center;
+    color: #9AD1D4;
+    padding: 8px;
+}
+.backHomeAdminLink{
+    text-decoration: none;
+}
+.backHomeAdmin{
+    text-align: end;
+    padding: 16px;
+    color: #9AD1D4;
+}

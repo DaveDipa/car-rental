@@ -40,6 +40,7 @@ public class OrderController {
         Car orderedCar = carService.findById(orderRequest.getCar());
         System.out.println(orderedCar.toString());
 
+
         LocalDate today = LocalDate.now();
 
         // CHECK DATA MAGGIORE DI QUELLA ODIERNA
@@ -68,7 +69,7 @@ public class OrderController {
 
         Order newOrder = null;
 
-        if (orderFound.isEmpty()) {
+        if (orderFound.isEmpty()) {//oggetto 
 
             newOrder = orderService.save(new Order(orderRequest.getRentalDateStart(), orderRequest.getRentalDateEnd(),
                     orderedCar));

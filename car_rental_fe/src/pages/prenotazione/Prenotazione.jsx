@@ -3,18 +3,19 @@ import Navbar from "../../components/navbar/Navbar";
 import "./prenotazione.css";
 import { IconCar } from "@tabler/icons-react";
 import Footer from "../../components/footer/Footer";
+import OrderRecap from "../../components/order/OrderRecap";
 
 export default function Prenotazione() {
   const [cars, setCars] = useState([]);
   const [choosedCar, setChoosedCar] = useState(-1);
-  const [startDate, setStartDate] = useState("");
-  const [endDate, setEndDate] = useState("");
-  const [prices, setPrices] = useState();
-  const [choosedCarPrice, setChoosedCarPrice] = useState();
+  const [choosedStartDate, setChoosedStartDate] = useState("");
+  const [choosedEndDate, setChoosedEndDate] = useState("");
+  const [choosedCarPrice, setChoosedCarPrice] = useState(0);
   const [choosedOrder, setChoosedOrder] = useState([]);
 
   const defaultCarUrl = "http://localhost:8080/api/car";
 
+  /**FETCH ALL CARS */
   const getCarData = async () => {
     await fetch(defaultCarUrl + "/all")
       .then((response) => response.json())
@@ -22,13 +23,6 @@ export default function Prenotazione() {
         setCars(data);
       });
   };
-  // const getCarPrice = async () => {
-  //   await fetch(defaultCarUrl + "/price")
-  //     .then((response) => response.json())
-  //     .then((data) => {
-  //       setPrices(data);
-  //     });
-  // };
 
   useEffect(() => {
     getCarData();
@@ -39,8 +33,8 @@ export default function Prenotazione() {
 
     const newOrder = {
       car: choosedCar,
-      rentalDateStart: startDate,
-      rentalDateEnd: endDate,
+      rentalDateStart: choosedStartDate,
+      rentalDateEnd: choosedEndDate,
       price: choosedCarPrice,
     };
     console.log("handle submit new order " + newOrder);
@@ -68,7 +62,6 @@ export default function Prenotazione() {
   };
 
 
-
   return (
     <div>
       <Navbar />
@@ -79,7 +72,7 @@ export default function Prenotazione() {
       <div className="form-container">
         {/**FORM */}
         <form onSubmit={handleSubmit} className="form">
-          {/**drop down menu per scelta automobili */}
+          {/**DROP DOWN MENU PER SCELTA AUTOMOBILI + TARGET PER PRENDERE I VALORI ID E PREZZO */}
           <IconCar className={"icon"} />
           <select
             className="form-item"
@@ -93,16 +86,21 @@ export default function Prenotazione() {
             {cars &&
               cars.map((car) => (
                 <option key={car.id} value={car.id} valueprice={car.price}>
-                  {car.brand + " - " + car.model + " - prezzo: " + car.price}
+                  {car.brand +
+                    " - " +
+                    car.model +
+                    " - prezzo giornaliero: " +
+                    car.price +
+                    " euro"}
                 </option>
               ))}
           </select>
-
+          {/**TARGET VALORI DATE */}
           <label htmlFor="scegliDataInizio">Data ritiro veicolo: </label>
           <input
-            value={startDate}
+            value={choosedStartDate}
             onChange={(event) => {
-              setStartDate(event.target.value);
+              setChoosedStartDate(event.target.value);
             }}
             className="form-item"
             type="date"
@@ -111,9 +109,9 @@ export default function Prenotazione() {
           />
           <label htmlFor="scegliDataFine">Data consegna veicolo:</label>
           <input
-            value={endDate}
+            value={choosedEndDate}
             onChange={(event) => {
-              setEndDate(event.target.value);
+              setChoosedEndDate(event.target.value);
             }}
             className="form-item"
             type="date"
@@ -126,7 +124,10 @@ export default function Prenotazione() {
           </button>
         </form>
       </div>
-      <h1 className="fattura">ORDINE: {} </h1>
+      <h1 className="fattura">
+        IL TUO ORDINE
+        {/* <OrderRecap choosedCar={choosedCar} /> */}
+      </h1>
       <div>
         <img
           className="prenotazione-img"

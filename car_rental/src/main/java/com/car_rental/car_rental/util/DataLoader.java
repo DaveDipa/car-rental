@@ -25,15 +25,15 @@ public class DataLoader implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        Car c1 = new Car("X5", "BMW", 2993, "https://www.bmw.it", 250.0);
-        Car c2 = new Car("GLE", "Mercedes", 3982, "https://www.mercedes-benz.it", 350.0);
-        Car c3 = new Car("A3", "Audi", 2480, "https://www.audi.it", 150.0);
-        Car c4 = new Car("DS7", "DS", 1598, "https://www.dsautomobiles.it", 100.0);
-        Car c5 = new Car("Tonale", "Alfa Romeo", 1469, "https://www.alfaromeo.it", 550.0);
-        Car c6 = new Car("Urus", "Lamborghini", 3996, "https://www.lamborghini.com", 990.0);
-        Car c7 = new Car("Purosangue", "Ferrari", 6496, "https://www.ferrari.com", 750.0);
-        Car c8 = new Car("Sport", "Range Rover", 2996, "https://www.landrover.it", 250.0);
-        Car c9 = new Car("Panda", "Fiat", 1000, "https://www.fiat.it", 50.0);
+        Car c1 = new Car("X5", "BMW", 2993, "https://www.bmw.it", 25.0);
+        Car c2 = new Car("GLE", "Mercedes", 3982, "https://www.mercedes-benz.it", 35.0);
+        Car c3 = new Car("A3", "Audi", 2480, "https://www.audi.it", 30.0);
+        Car c4 = new Car("DS7", "DS", 1598, "https://www.dsautomobiles.it", 10.0);
+        Car c5 = new Car("Tonale", "Alfa Romeo", 1469, "https://www.alfaromeo.it", 50.0);
+        Car c6 = new Car("Urus", "Lamborghini", 3996, "https://www.lamborghini.com", 90.0);
+        Car c7 = new Car("Purosangue", "Ferrari", 6496, "https://www.ferrari.com", 75.0);
+        Car c8 = new Car("Sport", "Range Rover", 2996, "https://www.landrover.it", 50.0);
+        Car c9 = new Car("Panda", "Fiat", 1000, "https://www.fiat.it", 8.0);
 
         List<Car> cars = new ArrayList<>();
         cars.add(c1);
