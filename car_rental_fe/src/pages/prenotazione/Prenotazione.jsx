@@ -9,18 +9,26 @@ export default function Prenotazione() {
   const [choosedCar, setChoosedCar] = useState(-1);
   const [startDate, setStartDate] = useState("");
   const [endDate, setEndDate] = useState("");
-  const [choosedOrder, setChoosedOrder] = useState([]); //prova a far vedere una sorta di recap con modello macchina, start e end se ordine è ok
+  const [prices, setPrices] = useState();
+  const [choosedCarPrice, setChoosedCarPrice] = useState();
+  const [choosedOrder, setChoosedOrder] = useState([]);
 
   const defaultCarUrl = "http://localhost:8080/api/car";
 
   const getCarData = async () => {
     await fetch(defaultCarUrl + "/all")
       .then((response) => response.json())
-
       .then((data) => {
         setCars(data);
       });
   };
+  // const getCarPrice = async () => {
+  //   await fetch(defaultCarUrl + "/price")
+  //     .then((response) => response.json())
+  //     .then((data) => {
+  //       setPrices(data);
+  //     });
+  // };
 
   useEffect(() => {
     getCarData();
@@ -33,15 +41,16 @@ export default function Prenotazione() {
       car: choosedCar,
       rentalDateStart: startDate,
       rentalDateEnd: endDate,
+      price: choosedCarPrice,
     };
-    console.log(newOrder);
+    console.log("handle submit new order " + newOrder);
     console.log(JSON.stringify(newOrder));
 
     {
       /*** FETCH PER POST ***/
     }
 
-     fetch("http://localhost:8080/api/order/save", {
+    fetch("http://localhost:8080/api/order/save", {
       method: "POST",
       body: JSON.stringify(newOrder),
       headers: {
@@ -51,12 +60,14 @@ export default function Prenotazione() {
       .then((response) => response.json())
       .then((data) => {
         setChoosedOrder(data);
-       console.log(data);
+        console.log("data fetch save:" + data);
       })
       .catch((err) => {
         console.log(err + " Errore");
       });
   };
+
+
 
   return (
     <div>
@@ -75,13 +86,14 @@ export default function Prenotazione() {
             onChange={(e) => {
               console.log(e);
               setChoosedCar(e.target.value);
+              setChoosedCarPrice(e.target.valueprice);
             }}
           >
             <option value={-1}>scegli auto</option>
             {cars &&
               cars.map((car) => (
-                <option key={car.id} value={car.id}>
-                  {car.brand + " - " + car.model}
+                <option key={car.id} value={car.id} valueprice={car.price}>
+                  {car.brand + " - " + car.model + " - prezzo: " + car.price}
                 </option>
               ))}
           </select>
@@ -114,6 +126,7 @@ export default function Prenotazione() {
           </button>
         </form>
       </div>
+      <h1 className="fattura">ORDINE: {} </h1>
       <div>
         <img
           className="prenotazione-img"
@@ -121,6 +134,7 @@ export default function Prenotazione() {
           alt=""
         />
       </div>
+
       <Footer />
     </div>
   );

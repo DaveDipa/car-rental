@@ -48,7 +48,21 @@ public class OrderController {
             return null;
         }
 
-        //CHECK DISPONIBILITA AUTO
+        // TROVA GIORNI DI AFFITTO PER CALCOLARE IL PREZZO TOTALE
+        LocalDate from = orderRequest.getRentalDateStart();
+        LocalDate to = orderRequest.getRentalDateEnd();
+
+        Period period = Period.between(from, to);
+
+        Double price = orderedCar.getPrice();
+
+        System.out.println(period.getDays() + " giorni di affitto");
+
+        Double totalPrice = price * period.getDays();// CALCOLO TOTALE COSTO
+
+        System.out.println("prezzo totale affitto: " + totalPrice + " EURO");
+
+        // CHECK DISPONIBILITA AUTO
         List<Order> orderFound = orderService.checkCarOrder(orderedCar.getId(), orderRequest.getRentalDateStart(),
                 orderRequest.getRentalDateEnd());
 
@@ -59,23 +73,11 @@ public class OrderController {
             newOrder = orderService.save(new Order(orderRequest.getRentalDateStart(), orderRequest.getRentalDateEnd(),
                     orderedCar));
 
-            System.out.println("nuovo ordine salvato: " + orderRequest.getCar());
+            System.out.println("nuovo ordine salvato, id automobile: " + orderRequest.getCar());
 
-        }
-        else{
+        } else {
             System.out.println("auto già prenotata in questo periodo");
         }
-
-        //TROVARE GIORNI DI AFFITTO PER CALCOLARE IL PREZZO TOTALE
-        LocalDate from = orderRequest.getRentalDateStart();
-        LocalDate to = orderRequest.getRentalDateEnd();
-
-        Period period = Period.between(from, to);
-        
-
-        System.out.println(period.getDays() + " giorni di affitto");
-        System.out.println("prezzo totale affitto: " + 5 * period.getDays() + " EURO");//PROVA CALCOLO PREZZO
-        
 
         return newOrder;
     }

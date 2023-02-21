@@ -30,6 +30,9 @@ public class Order {
     @ManyToOne(cascade = CascadeType.ALL)
     private Car car;
 
+    // private Double totalPrice;
+
+
 
 
     public Order( LocalDate rentalDateStart,LocalDate rentalDateEnd, Car car) {

@@ -28,16 +28,18 @@ public class Car {
 
     private String link;
 
+    private Double price;
 
 
     @OneToMany(cascade = CascadeType.ALL)
     private List<Order> order;
 
-    public Car(String model, String brand, Integer engineSize, String link) {
+    public Car(String model, String brand, Integer engineSize, String link, Double price) {
         this.model = model;
         this.brand = brand;
         this.engineSize = engineSize;
         this.link = link;
+        this.price = price;
     }
 
 

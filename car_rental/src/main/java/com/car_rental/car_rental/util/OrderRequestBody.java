@@ -10,10 +10,13 @@ public class OrderRequestBody {
 
     private LocalDate rentalDateEnd;
 
-    public OrderRequestBody(Long car, LocalDate rentalDateStart, LocalDate rentalDateEnd) {
+    private Double price;
+
+    public OrderRequestBody(Long car, LocalDate rentalDateStart, LocalDate rentalDateEnd, Double price) {
         this.car = car;
         this.rentalDateStart = rentalDateStart;
         this.rentalDateEnd = rentalDateEnd;
+        this.price = price;
     }
 
     public Long getCar() {
@@ -40,5 +43,13 @@ public class OrderRequestBody {
         this.rentalDateEnd = rentalDateEnd;
     }
 
+    public Double getPrice() {
+        return price;
+    }
+
+    public void setPrice(Double price) {
+        this.price = price;
+    }
+    
     
 }

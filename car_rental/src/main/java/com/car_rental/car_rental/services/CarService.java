@@ -26,6 +26,10 @@ public class CarService {
         return carRepo.save(car);
     }
 
+    public List<Double> findPrice(){
+        return carRepo.findPrice();
+    }
+
     
    
 }

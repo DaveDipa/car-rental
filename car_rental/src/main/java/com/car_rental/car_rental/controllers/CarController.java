@@ -32,4 +32,8 @@ public class CarController {
         return carService.findById(id);
     }
     
+    @GetMapping("/price")
+    public List<Double> findPrice(){
+        return carService.findPrice();
+    }
 }

@@ -35,6 +35,10 @@
 label{
     color: #bedfee;
 }
+.fattura{
+    text-align: center;
+    color: #bedfee;
+}
 .prenotazione-img{
     width: 100%;
     height: auto;
