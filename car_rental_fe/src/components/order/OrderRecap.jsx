@@ -1,22 +1,17 @@
-export default function OrderRecap({choosedCar}){
+import { useState } from "react";
 
-    return(
-        <div className="orderRecap">
-            {choosedCar && (
-                <div>
-                    {choosedCar.map((car)=>(
-                        <div key={car.id}>
-                            <div>
-                                <h2>id: {car.id}</h2>
-                            </div>
-                        </div>
-                    ))}
-                </div>
-            )}
-            
+export default function OrderRecap({ choosedOrder}) {
+  const [isLoading, setIsLoading] = useState(true);
 
-        </div>
-    )
-       
-       
+  return (
+    <div className="orderRecap">
+      <div key={choosedOrder.id}>
+        <h2>ID ordine: {choosedOrder.id}</h2>
+        {/* <h2>Modello: {choosedOrder.car.id}</h2> */}
+        <h3>Ritiro veicolo: {choosedOrder.rentalDateStart}</h3>
+        <h3>Consegna veicolo: {choosedOrder.rentalDateEnd}</h3>
+        <h3>Totale: {choosedOrder.totalPrice} euro</h3>
+      </div>
+    </div>
+  );
 }

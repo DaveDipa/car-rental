@@ -88,10 +88,7 @@ export default function Prenotazione() {
                 <option key={car.id} value={car.id} valueprice={car.price}>
                   {car.brand +
                     " - " +
-                    car.model +
-                    " - prezzo giornaliero: " +
-                    car.price +
-                    " euro"}
+                    car.model }
                 </option>
               ))}
           </select>
@@ -126,7 +123,8 @@ export default function Prenotazione() {
       </div>
       <h1 className="fattura">
         IL TUO ORDINE
-        {/* <OrderRecap choosedCar={choosedCar} /> */}
+        {console.log(choosedOrder)}
+        <OrderRecap choosedOrder={choosedOrder}/>
       </h1>
       <div>
         <img
