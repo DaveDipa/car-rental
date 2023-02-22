@@ -2,9 +2,11 @@ import { useState } from "react";
 
 export default function OrderRecap({ choosedOrder}) {
   const [isLoading, setIsLoading] = useState(true);
+
   
 
   return (
+    
     <div className="orderRecap">
       <div key={choosedOrder.id}>
         <h2>ID ordine: {choosedOrder.id}</h2>
