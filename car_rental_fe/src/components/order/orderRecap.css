@@ -1,0 +1,12 @@
+.orderRecap{
+    margin-top: 24px;
+    margin-bottom: 24px;
+}
+.orderRecap-container{
+    border: 
+    4px solid #f9f9f9;
+    border-radius: 16px;
+    background-color: #9AD1D4;
+    color: #003249;
+    margin-inline: 160px;
+}

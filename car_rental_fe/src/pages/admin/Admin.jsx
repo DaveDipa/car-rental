@@ -46,7 +46,7 @@ export default function Admin() {
                     <h3>costruttore vettura: {order.car.brand}</h3>
                     <h3>data ritiro: {order.rentalDateStart}</h3>
                     <h3>data consegna: {order.rentalDateEnd}</h3>
-                    <h3>totale ordine: {order.totalPrice}</h3>
+                    <h3>totale ordine: € {order.totalPrice}</h3>
                   </div>
                 </div>
               ))}
