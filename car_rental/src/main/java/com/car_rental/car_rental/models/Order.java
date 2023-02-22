@@ -31,11 +31,12 @@ public class Order {
 
     private Double totalPrice;
 
-    public Order(LocalDate rentalDateStart, LocalDate rentalDateEnd, Car car) {
+    public Order(LocalDate rentalDateStart, LocalDate rentalDateEnd, Car car, Double totalPrice) {
 
         this.rentalDateStart = rentalDateStart;
         this.rentalDateEnd = rentalDateEnd;
         this.car = car;
+        this.totalPrice = totalPrice;
     }
 
 }

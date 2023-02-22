@@ -58,8 +58,7 @@ public class OrderController {
 
         System.out.println(period.getDays() + " giorni di affitto");
 
-        Double totalPrice = price * period.getDays();// CALCOLO TOTALE COSTO
-
+        Double totalPrice = price * period.getDays();// CALCOLO TOTALE COSTO (PER DEBUG)
         System.out.println("prezzo totale affitto: " + totalPrice + " EURO");
 
         // CHECK DISPONIBILITA AUTO
@@ -71,11 +70,11 @@ public class OrderController {
         if (orderFound.isEmpty()) {
 
             newOrder = orderService.save(new Order(orderRequest.getRentalDateStart(), orderRequest.getRentalDateEnd(),
-                    orderedCar));
+                    orderedCar, orderedCar.getPrice()*period.getDays()));
 
             System.out.println("nuovo ordine salvato, id automobile: " + orderRequest.getCar());
 
-            orderRequest.setPrice(totalPrice);
+            
 
         } else {
             System.out.println("auto già prenotata in questo periodo");
