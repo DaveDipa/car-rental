@@ -49,3 +49,9 @@ label{
 .error{
     color: rgb(195, 4, 4);
 }
+.loadingDiv{
+    text-align: center;
+}
+.loading{
+    color: #bedfee;
+}

@@ -13,22 +13,35 @@ export default function Prenotazione() {
   const [choosedCarPrice, setChoosedCarPrice] = useState(0);
   const [choosedOrder, setChoosedOrder] = useState([]);
   const [error, setError] = useState(null);
+  const [isLoading, setIsLoading] = useState(true);
 
-  const errorDiv = error?
-  <div className="errorDiv">
-    <h2 className="error">L'auto è già prenotata in questo periodo</h2>
-  </div>
-  : "";
+  const errorDiv = error ? (
+    <div className="errorDiv">
+      <h2 className="error">L'auto è già prenotata in questo periodo</h2>
+    </div>
+  ) : (
+    ""
+  );
+
+  const loadingDiv = isLoading ? (
+    <div className="loadingDiv">
+      <h2 className="loading">LOADING...PLEASE WAIT</h2>
+    </div>
+  ) : (
+    ""
+  );
 
   const defaultCarUrl = "http://localhost:8080/api/car";
 
   /**FETCH ALL CARS */
   const getCarData = async () => {
+    setIsLoading(true);
     await fetch(defaultCarUrl + "/all")
       .then((response) => response.json())
       .then((data) => {
         setCars(data);
       });
+    setIsLoading(false);
   };
 
   useEffect(() => {
@@ -70,14 +83,13 @@ export default function Prenotazione() {
       });
   };
 
-
   return (
     <div>
       <Navbar />
       <div>
         <h1 className="result-ordine">ORDINA LA TUA VETTURA </h1>
       </div>
-
+      {loadingDiv}
       <div className="form-container">
         {/**FORM */}
         <form onSubmit={handleSubmit} className="form">
@@ -95,13 +107,12 @@ export default function Prenotazione() {
             {cars &&
               cars.map((car) => (
                 <option key={car.id} value={car.id} valueprice={car.price}>
-                  {car.brand +
-                    " - " +
-                    car.model }
+                  {car.brand + " - " + car.model}
                 </option>
               ))}
           </select>
           {/**TARGET VALORI DATE */}
+          
           <label htmlFor="scegliDataInizio">Data ritiro veicolo: </label>
           <input
             value={choosedStartDate}
@@ -124,7 +135,7 @@ export default function Prenotazione() {
             id="scegliDataFine"
             name="rent-end"
           />
-          
+
           <button className="btn-form-item" type="submit">
             Procedi con l'ordine
           </button>
@@ -134,7 +145,7 @@ export default function Prenotazione() {
       <h1 className="fattura">
         IL TUO ORDINE
         {console.log(choosedOrder)}
-        <OrderRecap choosedOrder={choosedOrder}/>
+        <OrderRecap choosedOrder={choosedOrder} />
       </h1>
       <div>
         <img

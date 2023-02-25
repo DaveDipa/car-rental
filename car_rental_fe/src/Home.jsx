@@ -11,6 +11,15 @@ import Footer from "./components/footer/Footer";
 
 function Home() {
   const [cars, setCars] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+
+  const loadingDiv = isLoading ? (
+    <div className="loadingDiv">
+      <h2 className="loading">LOADING...PLEASE WAIT</h2>
+    </div>
+  ) : (
+    ""
+  );
 
   const defaultCarUrl = "http://localhost:8080/api/car";
 
@@ -19,12 +28,14 @@ function Home() {
   }, []);
 
   const fetchCarHandler = () => {
+    setIsLoading(true);
     fetch(defaultCarUrl + "/all")
       .then((response) => response.json())
 
       .then((data) => {
         setCars(data);
       });
+    setIsLoading(false);
   };
 
   return (
@@ -32,6 +43,7 @@ function Home() {
       {/* HEADER */}
       <div className="home text-center">
         <Navbar />
+
         <div className="title">
           <div className="title-text">
             <h1 className="car-rental-roma">CAR RENTAL ROMA</h1>
@@ -59,6 +71,7 @@ function Home() {
           delayInMilliseconds={100}
         >
           {/* CARDS */}
+          {loadingDiv}
           <div>
             <CarsList cars={cars} />
           </div>

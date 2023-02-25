@@ -1,9 +1,6 @@
-import { useState } from "react";
 import "./orderRecap.css";
 
 export default function OrderRecap({ choosedOrder }) {
-  const [isLoading, setIsLoading] = useState(true);
-
   return (
     <div className="orderRecap">
       <div className="orderRecap-container">
