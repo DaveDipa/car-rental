@@ -5,7 +5,7 @@ export default function OrderRecap({ choosedOrder }) {
     <div className="orderRecap">
       <div className="orderRecap-container">
         <div key={choosedOrder.id}>
-          <h2>ID ordine: {choosedOrder.id}</h2>
+          <h2>ID ordine: 000{choosedOrder.id}CRM</h2>
           {/* <h2>Modello: {choosedOrder.car.id}</h2> */}
           <h3>Ritiro veicolo: {choosedOrder.rentalDateStart}</h3>
           <h3>Consegna veicolo: {choosedOrder.rentalDateEnd}</h3>

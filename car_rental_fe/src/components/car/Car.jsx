@@ -1,7 +1,7 @@
 export default function Car(props) {
 
   return (
-    <div className="col-4 card-container" key={props.id}>
+    <div className="col-lg-4 col-sm-12 card-container" key={props.id}>
       <div className="card ">
         <div className="card-body">
           <div key={props.id}>

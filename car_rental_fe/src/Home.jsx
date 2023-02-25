@@ -71,8 +71,9 @@ function Home() {
           delayInMilliseconds={100}
         >
           {/* CARDS */}
-          {loadingDiv}
+          
           <div>
+          {loadingDiv}
             <CarsList cars={cars} />
           </div>
         </FadeIn>

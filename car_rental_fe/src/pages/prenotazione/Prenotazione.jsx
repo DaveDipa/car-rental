@@ -17,7 +17,9 @@ export default function Prenotazione() {
 
   const errorDiv = error ? (
     <div className="errorDiv">
-      <h2 className="error">L'auto è già prenotata in questo periodo</h2>
+      <h2 className="error">
+        L'auto è già prenotata in questo periodo: {choosedStartDate} | {choosedEndDate}
+      </h2>
     </div>
   ) : (
     ""
@@ -112,7 +114,7 @@ export default function Prenotazione() {
               ))}
           </select>
           {/**TARGET VALORI DATE */}
-          
+
           <label htmlFor="scegliDataInizio">Data ritiro veicolo: </label>
           <input
             value={choosedStartDate}
