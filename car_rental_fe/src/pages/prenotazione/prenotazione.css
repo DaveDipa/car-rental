@@ -43,3 +43,9 @@ label{
     width: 100%;
     height: auto;
 }
+.errorDiv{
+    text-align: center;
+}
+.error{
+    color: rgb(195, 4, 4);
+}

@@ -12,6 +12,13 @@ export default function Prenotazione() {
   const [choosedEndDate, setChoosedEndDate] = useState("");
   const [choosedCarPrice, setChoosedCarPrice] = useState(0);
   const [choosedOrder, setChoosedOrder] = useState([]);
+  const [error, setError] = useState(null);
+
+  const errorDiv = error?
+  <div className="errorDiv">
+    <h2 className="error">L'auto è già prenotata in questo periodo</h2>
+  </div>
+  : "";
 
   const defaultCarUrl = "http://localhost:8080/api/car";
 
@@ -30,6 +37,7 @@ export default function Prenotazione() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setError(null);
 
     const newOrder = {
       car: choosedCar,
@@ -56,8 +64,9 @@ export default function Prenotazione() {
         setChoosedOrder(data);
         console.log("data fetch save:" + data);
       })
-      .catch((err) => {
-        console.log(err + " Errore");
+      .catch((error) => {
+        console.log(error + " Errore");
+        setError(error);
       });
   };
 
@@ -115,10 +124,11 @@ export default function Prenotazione() {
             id="scegliDataFine"
             name="rent-end"
           />
-
+          
           <button className="btn-form-item" type="submit">
             Procedi con l'ordine
           </button>
+          {errorDiv}
         </form>
       </div>
       <h1 className="fattura">
