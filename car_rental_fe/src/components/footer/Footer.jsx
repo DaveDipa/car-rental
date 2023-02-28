@@ -3,13 +3,11 @@ export default function Footer() {
   return (
     <footer id="footer" className="footer-container ">
       <div className="footer-items row">
-        <div className="footer-item col">Email: <a href="">c.rental.roma@email.it</a></div>
-        <div className="footer-item col">Telefono: 123987456</div>
-        <div className="footer-item footer-sedi col">
-          Le nostre sedi:
-          <div className="footer-sede ">Viale Roma 1</div>
-          <div className="footer-sede ">Viale dell'Oceano Atlantico 23</div>
-          <div className="footer-sede ">Via Corso di Francia 76</div>
+        <p className="footer-item col-lg-4 col-sm-8">Email: <a href="">c.rental.roma@email.it</a></p>
+        <p className="footer-item col-lg-4 col-sm-8">Telefono: 06/14573957</p>
+        <div className="footer-item footer-sedi col-lg-4 col-sm-8">
+          La nostra sede:
+          <p className="footer-sede ">Viale Roma 1a, RM </p>
         </div>
       </div>
     </footer>

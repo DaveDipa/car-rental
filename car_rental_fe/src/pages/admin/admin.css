@@ -24,3 +24,10 @@
     padding: 16px;
     color: #9AD1D4;
 }
+.delete-btn{
+    margin-top: 8px;
+    background-color: #9AD1D4;
+    border-color: white;  
+    color: red;
+    font-weight: bold;
+}

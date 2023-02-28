@@ -28,9 +28,12 @@ public class OrderService {
         return orderRepo.save(order);
     }
 
-    public List<Order> checkCarOrder(Long carId, LocalDate dateStart, LocalDate dateEnd){
+    public void deleteOrderById(Long id) {
+        orderRepo.deleteById(id);
+    }
+
+    public List<Order> checkCarOrder(Long carId, LocalDate dateStart, LocalDate dateEnd) {
         return orderRepo.checkCarOrder(carId, dateStart, dateEnd, dateStart, dateEnd);
     }
-    
 
 }

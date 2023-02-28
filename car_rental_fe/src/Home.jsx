@@ -86,17 +86,18 @@ function Home() {
       </div>
       <hr />
       {/**HERO */}
-      <div className="row hero-cont">
-        <h1 className="hero-title">Chi siamo</h1>
+      <h1 className="hero-title">CHI SIAMO</h1>
+      <div className=" hero-cont">
+        
 
-        <div id="chi-siamo" className="col p-chi-siamo">
+        <div id="chi-siamo" className="p-chi-siamo">
           <FadeIn
             from="bottom"
             positionOffset={200}
             triggerOffset={90}
             delayInMilliseconds={100}
           >
-            <div className=" descrizione col ">
+            <div className=" descrizione">
               <h5>
                 Ciao a tutti! Siamo Roma Car Rental, un'azienda che offre
                 servizi di noleggio auto a Roma. Siamo fieri di offrire una
@@ -125,7 +126,7 @@ function Home() {
           </FadeIn>
         </div>
 
-        <div className="col hero-img-cont">
+        <div className="hero-img-cont">
           <FadeIn
             from="bottom"
             positionOffset={200}
@@ -133,7 +134,7 @@ function Home() {
             delayInMilliseconds={100}
           >
             <img
-              className="col hero-img"
+              className="hero-img"
               src="https://images.unsplash.com/photo-1529369623266-f5264b696110?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1074&q=80"
               alt=""
             />

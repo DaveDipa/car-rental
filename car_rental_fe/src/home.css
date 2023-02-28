@@ -1,5 +1,7 @@
-#root{
+#root {
   background-color: #003249;
+  margin: 0%;
+  padding: 0%;
 }
 .home {
   margin: 0px;
@@ -17,26 +19,23 @@
 }
 
 .title-text {
- 
   padding-top: 20%;
   text-align: center;
   color: #bedfee;
 }
 
 .parco-auto-text {
-  
   color: #bedfee;
 }
 
 .car-rental-roma {
   color: #ffffff;
 }
-.btn-p-container{
+.btn-p-container {
   display: flex;
   justify-content: center;
-
 }
-.link-to-prenotazione{
+.link-to-prenotazione {
   padding-block: 9px;
   padding-inline: 9px;
   background-color: #bedfee;
@@ -48,6 +47,10 @@
 }
 
 .hero-cont {
+  display: flex;
+  flex-direction: row;
+  gap: 8px;
+
   background-color: #003249;
 }
 .hero-title {
@@ -66,14 +69,12 @@
 }
 
 .hero-img-cont {
-  margin-inline: 16px;
-  margin-block: 16px;
+  margin-right: 8px;
   width: fit-content;
   height: auto;
 }
 
 .hero-img {
-  width: auto;
-  height: 600px;
+  border: 4px solid #bedfee;
+  border-radius: 16px;
 }
-
