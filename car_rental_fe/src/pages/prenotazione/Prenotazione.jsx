@@ -14,11 +14,13 @@ export default function Prenotazione() {
   const [choosedOrder, setChoosedOrder] = useState([]);
   const [error, setError] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const [orderSubmit, setOrderSubmit] = useState(false);
 
   const errorDiv = error ? (
     <div className="errorDiv">
       <h2 className="error">
-        L'auto è già prenotata in questo periodo: {choosedStartDate} | {choosedEndDate}
+        L'auto è già prenotata in questo periodo: {choosedStartDate} |{" "}
+        {choosedEndDate}
       </h2>
     </div>
   ) : (
@@ -77,6 +79,7 @@ export default function Prenotazione() {
       .then((response) => response.json())
       .then((data) => {
         setChoosedOrder(data);
+        // setOrderSubmit(true);
         console.log("data fetch save:" + data);
       })
       .catch((error) => {
@@ -144,11 +147,11 @@ export default function Prenotazione() {
           {errorDiv}
         </form>
       </div>
-      <h1 className="fattura">
-        IL TUO ORDINE
+       {orderSubmit ? <div className="fattura">
+        <h1>IL TUO ORDINE</h1>
         {console.log(choosedOrder)}
         <OrderRecap choosedOrder={choosedOrder} />
-      </h1>
+      </div> : null}
       <div>
         <img
           className="prenotazione-img"

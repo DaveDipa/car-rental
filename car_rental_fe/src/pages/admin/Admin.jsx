@@ -26,9 +26,10 @@ export default function Admin() {
     console.log(id);
     fetch(defaultOrderUrl + "/delete/" + id, {
       method: "DELETE",
-    }).then((response) => response.json());
-    console.log(response);
-    GetOrders();
+    }).then((response) => {
+      console.log(response);
+      GetOrders();
+    });
   };
 
   return (
