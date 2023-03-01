@@ -1,7 +1,18 @@
 .navbar{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 99;
     background-color: #003249;
 
 }
 .navbar-brand{
+    font-size:x-large;
+    color: #9AD1D4;
+}
+.icon{
+    margin-left: 32px;
+    margin-bottom: 8px;
+    padding: 2px;
     color: #9AD1D4;
 }

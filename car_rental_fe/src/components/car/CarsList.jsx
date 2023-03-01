@@ -15,6 +15,7 @@ const CarsList = (props) => {
             brand={car.brand}
             engineSize={car.engineSize}
             link={car.link}
+            price={car.price}
           />
         ))}
       </ul>

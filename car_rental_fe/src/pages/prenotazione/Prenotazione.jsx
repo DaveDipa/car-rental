@@ -152,7 +152,7 @@ export default function Prenotazione() {
         {console.log(choosedOrder)}
         <OrderRecap choosedOrder={choosedOrder} />
       </div> : null}
-      <div>
+      <div className="img-container">
         <img
           className="prenotazione-img"
           src="https://images.unsplash.com/photo-1421218108559-eb1ff78357f5?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1032&q=80"

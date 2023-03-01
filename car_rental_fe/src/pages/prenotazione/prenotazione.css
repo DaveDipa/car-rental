@@ -1,6 +1,7 @@
 .form-container{
 
-    margin: 0px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     width: 100%;
     min-width: min-content;
     display: flex;
@@ -22,6 +23,7 @@
     
 
 }
+
 .icon{
     size: 25px;
     color: #bedfee;
@@ -39,9 +41,11 @@ label{
     text-align: center;
     color: #bedfee;
 }
+
 .prenotazione-img{
     width: 100%;
     height: auto;
+   
 }
 .errorDiv{
     text-align: center;
