@@ -2,7 +2,6 @@ package com.car_rental.car_rental.models;
 
 import java.util.List;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -31,7 +30,8 @@ public class Car {
     private Double price;
 
 
-    @OneToMany(cascade = CascadeType.ALL)
+    
+    @OneToMany
     private List<Order> order;
 
     public Car(String model, String brand, Integer engineSize, String link, Double price) {

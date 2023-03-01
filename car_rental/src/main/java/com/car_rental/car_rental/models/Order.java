@@ -2,7 +2,6 @@ package com.car_rental.car_rental.models;
 
 import java.time.LocalDate;
 
-import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,7 +25,8 @@ public class Order {
 
     private LocalDate rentalDateEnd;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    
+    @ManyToOne
     private Car car;
 
     private Double totalPrice;

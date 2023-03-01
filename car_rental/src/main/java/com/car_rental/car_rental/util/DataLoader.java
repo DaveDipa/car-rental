@@ -33,7 +33,7 @@ public class DataLoader implements CommandLineRunner {
         Car c6 = new Car("Urus", "Lamborghini", 3996, "https://www.lamborghini.com", 90.0);
         Car c7 = new Car("Purosangue", "Ferrari", 6496, "https://www.ferrari.com", 75.0);
         Car c8 = new Car("Sport", "Range Rover", 2996, "https://www.landrover.it", 50.0);
-        Car c9 = new Car("Panda", "Fiat", 1000, "https://www.fiat.it", 8.0);
+        Car c9 = new Car("Tipo", "Fiat", 1000, "https://www.fiat.it", 8.0);
 
         List<Car> cars = new ArrayList<>();
         cars.add(c1);
@@ -46,6 +46,10 @@ public class DataLoader implements CommandLineRunner {
         cars.add(c8);
         cars.add(c9);
 
+        carService.save(c1);
+        carService.save(c2);
+        carService.save(c3);
+        carService.save(c4);
         carService.save(c5);
         carService.save(c6);
         carService.save(c7);
