@@ -11,8 +11,6 @@ export default function Car(props) {
             <hr />
             <h4 className="card-text"> {props.engineSize} CC</h4>
             <hr />
-            <h4 className="card-text">costo giornaliero {props.price} €</h4>
-            <hr />
             <button className="btn btn-secondary">
               <a href={props.link} className="card-text">
                 Visita il sito

@@ -79,7 +79,7 @@ export default function Prenotazione() {
       .then((response) => response.json())
       .then((data) => {
         setChoosedOrder(data);
-        // setOrderSubmit(true);
+        setOrderSubmit(true);
         console.log("data fetch save:" + data);
       })
       .catch((error) => {
