@@ -19,9 +19,9 @@ export default function Prenotazione() {
   const errorDiv = error ? (
     <div className="errorDiv">
       <h2 className="error">
-        L'auto è già prenotata in questo periodo: {choosedStartDate} |{" "}
-        {choosedEndDate}
+        L'auto è già prenotata in questo periodo: {choosedStartDate} | {choosedEndDate}
       </h2>
+      <h4 className="error">Prova a selezionare un altro periodo o tipo di automobile</h4>
     </div>
   ) : (
     ""
